@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { RunBtn } from "../styledComponents/Button";
-import Nav from "../styledComponents/Nav";
 
 const Container = styled.div`
   width: 80%;
@@ -11,6 +10,7 @@ const Container = styled.div`
 `;
 const Title = styled.h1`
   font-size: 40px;
+  font-weight: normal;
   margin-bottom: 24px;
 `;
 export default class Home extends Component {
@@ -47,7 +47,6 @@ export default class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <Nav></Nav>
         <Container>
           <Title>Choose Run:</Title>
           {this.workOrders}
