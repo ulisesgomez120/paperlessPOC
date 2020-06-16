@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { RunBtn } from "../styledComponents/Button";
+import { Link } from "react-router-dom";
+import data from "../data";
 
 const Container = styled.div`
   width: 80%;
@@ -13,49 +15,30 @@ const Title = styled.h1`
   font-weight: normal;
   margin-bottom: 24px;
 `;
-export default class Home extends Component {
-  workOrders = [
-    {
-      work_order_id: "WO3105",
-      material: "PACF 2.5kg 1.75mm",
-      batch_number: "2-200606",
-      qty_desired: 40,
-      run_date: "06/06/20",
-      line: "2",
-      qty_actual: 0,
-      date_created: "06/05/20",
-      time_start: "07:23:34",
-      time_finish: "14:04:43",
-    },
-    {
-      work_order_id: "WO3106",
-      material: "PACF 2.5kg 2.85mm",
-      batch_number: "2-200606",
-      qty_desired: 40,
-      run_date: "06/06/20",
-      line: "2",
-      qty_actual: 0,
-      date_created: "06/05/20",
-      time_start: "07:23:34",
-      time_finish: "14:04:43",
-    },
-  ];
 
-  workOrders = this.workOrders.map(({ workOrderId, line, material }) => {
-    return (
-      <RunBtn key={workOrderId}>
-        <span>Line: {line}</span>
-        <span>Material: {material}</span>
-      </RunBtn>
-    );
-  });
+export default class Home extends Component {
+  workOrdersData = data;
+
+  workOrdersJsx = this.workOrdersData.map(
+    ({ work_order_id, line, material }) => {
+      let urlSlug = `/scrap/${work_order_id}`;
+      return (
+        <Link key={work_order_id} to={urlSlug}>
+          <RunBtn>
+            <span>Line: {line}</span>
+            <span>Material: {material}</span>
+          </RunBtn>
+        </Link>
+      );
+    }
+  );
 
   render() {
     return (
       <React.Fragment>
         <Container>
           <Title>Choose Run:</Title>
-          {this.workOrders}
+          {this.workOrdersJsx}
         </Container>
       </React.Fragment>
     );
