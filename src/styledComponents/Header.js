@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { PrimaryBtnBlock } from "./Button";
+import { FinishRunInput } from "./Input";
 
 const GridContainer = styled.header`
   background-color: rgba(0, 0, 0, 0.03);
@@ -24,13 +25,6 @@ const StyledP = styled.p`
 `;
 const Secondary = styled.span`
   color: #597a98;
-`;
-const StyledInput = styled.input`
-  width: 44px;
-  height: 25px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #c4c4c4;
 `;
 
 const Header = (props) => {
@@ -64,7 +58,7 @@ const Header = (props) => {
           <label>
             <Secondary>Qty Actual:</Secondary>
           </label>
-          <StyledInput type="number" />
+          <FinishRunInput type="number" />
           <PrimaryBtnBlock type="submit">Finish Run</PrimaryBtnBlock>
         </form>
       </GridItem>

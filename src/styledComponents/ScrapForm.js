@@ -1,40 +1,59 @@
 import React from "react";
 import styled from "styled-components";
 
+const Container = styled.div`
+  padding: 22px 30px;
+`;
+const FlexForm = styled.form`
+  display: flex;
+  margin-top: 16px;
+`;
+const FlexItem = styled.div`
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0 5px;
+`;
+const RadioContainer = styled.div`
+  margin: 5px 0;
+`;
 const ScrapForm = () => {
   return (
-    <React.Fragment>
+    <Container>
       <h2>Scrap Log</h2>
-      <form>
-        <div>
+      <FlexForm>
+        <FlexItem>
           <h3>Type</h3>
-          <input type="radio" id="A" name="type" value="A" checked />
-          <label for="A">A - Cause Clear/Actionable</label>
-
-          <input type="radio" id="B" name="type" value="B" />
-          <label for="B">B - Cause Clear/Not Actionable</label>
-
-          <input type="radio" id="C" name="type" value="C" />
-          <label for="C">C - Cause Unclear</label>
-        </div>
-        <div>
+          <RadioContainer>
+            <input type="radio" id="A" name="type" value="A" checked />
+            <label for="A">A - Cause Clear/Actionable</label>
+          </RadioContainer>
+          <RadioContainer>
+            <input type="radio" id="B" name="type" value="B" />
+            <label for="B">B - Cause Clear/Not Actionable</label>
+          </RadioContainer>
+          <RadioContainer>
+            <input type="radio" id="C" name="type" value="C" />
+            <label for="C">C - Cause Unclear</label>
+          </RadioContainer>
+        </FlexItem>
+        <FlexItem>
           <h3>Spool #</h3>
           <input type="number" />
-        </div>
-        <div>
+        </FlexItem>
+        <FlexItem>
           <h3>Reason</h3>
           <input type="text" />
-        </div>
-        <div>
+        </FlexItem>
+        <FlexItem>
           <h3>Weight</h3>
           <input type="number" />
-        </div>
-        <div>
+        </FlexItem>
+        <FlexItem>
           <h3>Operator</h3>
           <input type="text" />
-        </div>
-      </form>
-    </React.Fragment>
+        </FlexItem>
+      </FlexForm>
+    </Container>
   );
 };
 
