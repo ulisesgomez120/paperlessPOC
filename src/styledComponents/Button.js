@@ -21,3 +21,6 @@ export const RunBtn = styled(PrimaryBtn)`
   display: flex;
   justify-content: space-between;
 `;
+export const PrimaryBtnBlock = styled(PrimaryBtn)`
+  display: block;
+`;
