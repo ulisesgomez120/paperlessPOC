@@ -7,7 +7,7 @@ const Scrap = (props) => {
     ({ work_order_id: id }) => id === props.match.params.slug
   );
 
-  return <Header />;
+  return <Header data={runData} />;
 };
 
 export default Scrap;
