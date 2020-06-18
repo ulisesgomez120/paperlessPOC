@@ -9,3 +9,6 @@ export const FinishRunInput = styled(BaseInput)`
   margin-left: 10px;
   margin-bottom: 10px;
 `;
+export const Radio = styled.input`
+  font-size: 16px;
+`;
