@@ -1,20 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-
+import { BaseInput, ScrapSmallInput } from "../styledComponents/Input";
+import { PrimaryBtn } from "../styledComponents/Button";
 const Container = styled.div`
   padding: 22px 30px;
 `;
 const FlexForm = styled.form`
   display: flex;
   margin-top: 16px;
+  flex-wrap: wrap;
 `;
 const FlexItem = styled.div`
   flex: 1 1 auto;
-  text-align: center;
   padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &:last-child {
+    flex-basis: 100%;
+    justify-content: flex-end;
+    padding: 12px;
+    flex-direction: row;
+  }
 `;
 const RadioContainer = styled.div`
-  margin: 5px 0;
+  margin-bottom: 5px;
+  align-self: start;
+`;
+const ScrapLable = styled.h3`
+  margin-bottom: 11px;
+  color: #597a98;
 `;
 const ScrapForm = () => {
   return (
@@ -22,7 +37,7 @@ const ScrapForm = () => {
       <h2>Scrap Log</h2>
       <FlexForm>
         <FlexItem>
-          <h3>Type</h3>
+          <ScrapLable>Type</ScrapLable>
           <RadioContainer>
             <input type="radio" id="A" name="type" value="A" checked />
             <label for="A">A - Cause Clear/Actionable</label>
@@ -37,20 +52,23 @@ const ScrapForm = () => {
           </RadioContainer>
         </FlexItem>
         <FlexItem>
-          <h3>Spool #</h3>
-          <input type="number" />
+          <ScrapLable>Spool #</ScrapLable>
+          <ScrapSmallInput type="number" />
         </FlexItem>
         <FlexItem>
-          <h3>Reason</h3>
-          <input type="text" />
+          <ScrapLable>Reason</ScrapLable>
+          <BaseInput type="text" />
         </FlexItem>
         <FlexItem>
-          <h3>Weight</h3>
-          <input type="number" />
+          <ScrapLable>Weight</ScrapLable>
+          <ScrapSmallInput type="number" />
         </FlexItem>
         <FlexItem>
-          <h3>Operator</h3>
-          <input type="text" />
+          <ScrapLable>Operator</ScrapLable>
+          <ScrapSmallInput type="text" />
+        </FlexItem>
+        <FlexItem>
+          <PrimaryBtn className="large">Scrap Spool</PrimaryBtn>
         </FlexItem>
       </FlexForm>
     </Container>

@@ -11,13 +11,16 @@ export const PrimaryBtn = styled(Button)`
   background-color: #00407b;
   color: #ffffff;
   border: none;
-  margin-right: 14px;
+  &.large {
+    font-size: 20px;
+    padding: 9px 38px;
+  }
 `;
 export const RunBtn = styled(PrimaryBtn)`
   width: 95%;
   padding: 16px 28px;
   margin: 0 auto 16px;
-  font-size: 18px;
+  font-size: 19px;
   display: flex;
   justify-content: space-between;
 `;
