@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
-import { PrimaryBtnBlock } from "./Button";
-import { FinishRunInput } from "./Input";
+import { PrimaryBtnBlock } from "../Button";
+import { FinishRunInput } from "../Input";
 
 const GridContainer = styled.header`
   background-color: rgba(0, 0, 0, 0.03);
@@ -27,7 +27,7 @@ const Secondary = styled.span`
   color: #597a98;
 `;
 
-const Header = (props) => {
+const Header = props => {
   const wo = props.data;
   return (
     <GridContainer>
@@ -54,7 +54,7 @@ const Header = (props) => {
         </StyledP>
       </GridItemAlignRight>
       <GridItem>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={e => e.preventDefault()}>
           <label>
             <Secondary>Qty Actual:</Secondary>
           </label>
