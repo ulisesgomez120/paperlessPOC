@@ -10,7 +10,7 @@ const data = [
     operator: "ug"
   },
   {
-    type: "A",
+    type: "B",
     spoolNum: 0,
     reason: "Line break",
     weight: 1456,
@@ -31,19 +31,37 @@ const data = [
     operator: "ug"
   }
 ];
+const Table = styled.div`
+  padding: 22px 30px;
+  width: 100%;
+`;
+const Td = styled.div`
+  font-size: 18px;
+  text-align: center;
+  flex-basis: 20%;
+`;
+const Tr = styled.div`
+  display: flex;
+  padding: 17px 0;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 12px;
+`;
+const TdReason = styled(Td)`
+  flex-basis: 35%;
+`;
 const tableJsx = data.map(obj => {
   return (
-    <tr>
-      <td>{obj.type}</td>
-      <td>{obj.spoolNum}</td>
-      <td>{obj.reason}</td>
-      <td>{obj.weight}</td>
-      <td>{obj.operator}</td>
-    </tr>
+    <Tr>
+      <Td>{obj.type}</Td>
+      <Td>{obj.spoolNum === 0 ? "--" : obj.spoolNum}</Td>
+      <TdReason>{obj.reason}</TdReason>
+      <Td>{obj.weight}</Td>
+      <Td>{obj.operator}</Td>
+    </Tr>
   );
 });
 const ScrapTable = props => {
-  return <table>{tableJsx}</table>;
+  return <Table>{tableJsx}</Table>;
 };
 
 export default ScrapTable;
