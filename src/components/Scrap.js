@@ -1,10 +1,10 @@
 import React from "react";
 import Data from "../data";
-import Header from "../styledComponents/Header";
+import Header from "../styledComponents/withProps/Header";
 import ScrapForm from "../styledComponents/ScrapForm";
-import ScrapTable from "../styledComponents/ScrapTable";
+import ScrapTable from "../styledComponents/withState/ScrapTable";
 
-const Scrap = (props) => {
+const Scrap = props => {
   let runData = Data.find(
     ({ work_order_id: id }) => id === props.match.params.slug
   );

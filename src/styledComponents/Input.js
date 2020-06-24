@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { type } from "os";
 
 export const BaseInput = styled.input`
   border: 1px solid #c4c4c4;
@@ -12,4 +13,7 @@ export const FinishRunInput = styled(BaseInput)`
 `;
 export const ScrapSmallInput = styled(BaseInput)`
   width: 60px;
+`;
+export const Radio = styled.input`
+  margin-right: 8px;
 `;
