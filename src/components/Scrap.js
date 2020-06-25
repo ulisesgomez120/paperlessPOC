@@ -8,7 +8,7 @@ class Scrap extends Component {
   state = {
     formData: {
       selectedType: "A",
-      spoolNum: 1,
+      spoolNum: 0,
       reason: "",
       weight: 0,
       operator: "",
@@ -28,7 +28,18 @@ class Scrap extends Component {
   };
   formHandler = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    const scrapTableCopy = [...this.state.scrapTableData];
+    scrapTableCopy.push(this.state.formData);
+    this.setState({
+      formData: {
+        selectedType: "A",
+        spoolNum: 0,
+        reason: "",
+        weight: 0,
+        operator: "",
+      },
+      scrapTableData: scrapTableCopy,
+    });
   };
   runData = workOrders.find(
     ({ work_order_id: id }) => id === this.props.match.params.slug
@@ -40,7 +51,7 @@ class Scrap extends Component {
         <Header runData={this.runData} />
         <ScrapForm
           change={this.handleInputChange}
-          selectedType={this.state.formData.selectedType}
+          formData={this.state.formData}
           submit={this.formHandler}
         />
         <ScrapTable tableData={this.state.scrapTableData} />

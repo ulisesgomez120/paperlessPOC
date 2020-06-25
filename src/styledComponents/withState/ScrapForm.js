@@ -45,7 +45,7 @@ class ScrapForm extends Component {
                 id="A"
                 name="type"
                 value="A"
-                checked={this.props.selectedType === "A"}
+                checked={this.props.formData.selectedType === "A"}
                 onChange={this.props.change}
               />
               <label htmlFor="A">A - Cause Clear/Actionable</label>
@@ -56,7 +56,7 @@ class ScrapForm extends Component {
                 id="B"
                 name="type"
                 value="B"
-                checked={this.props.selectedType === "B"}
+                checked={this.props.formData.selectedType === "B"}
                 onChange={this.props.change}
               />
               <label htmlFor="B">B - Cause Clear/Not Actionable</label>
@@ -67,7 +67,7 @@ class ScrapForm extends Component {
                 id="C"
                 name="type"
                 value="C"
-                checked={this.props.selectedType === "C"}
+                checked={this.props.formData.selectedType === "C"}
                 onChange={this.props.change}
               />
               <label htmlFor="C">C - Cause Unclear</label>
@@ -79,11 +79,17 @@ class ScrapForm extends Component {
               type="number"
               name="spoolNum"
               onChange={this.props.change}
+              value={this.props.formData.spoolNum}
             />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Reason</ScrapLable>
-            <BaseInput type="text" name="reason" onChange={this.props.change} />
+            <BaseInput
+              type="text"
+              name="reason"
+              onChange={this.props.change}
+              value={this.props.formData.reason}
+            />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Weight</ScrapLable>
@@ -91,6 +97,7 @@ class ScrapForm extends Component {
               type="number"
               name="weight"
               onChange={this.props.change}
+              value={this.props.formData.weight}
             />
           </FlexItem>
           <FlexItem>
@@ -99,6 +106,7 @@ class ScrapForm extends Component {
               type="text"
               name="operator"
               onChange={this.props.change}
+              value={this.props.formData.operator}
             />
           </FlexItem>
           <FlexItem>

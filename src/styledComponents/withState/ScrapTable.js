@@ -8,7 +8,7 @@ const Table = styled.div`
 const Td = styled.div`
   font-size: 18px;
   text-align: center;
-  flex-basis: 20%;
+  flex-basis: 25%;
 `;
 const Tr = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const ScrapTable = (props) => {
   const tableJsx = props.tableData.map((obj) => {
     return (
       <Tr>
-        <Td>{obj.type}</Td>
+        <Td>{obj.selectedType}</Td>
         <Td>{obj.spoolNum === 0 ? "--" : obj.spoolNum}</Td>
         <TdReason>{obj.reason}</TdReason>
         <Td>{obj.weight}</Td>

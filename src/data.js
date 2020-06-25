@@ -47,11 +47,11 @@ export const scrapTable = [
     weight: 2532,
     operator: "ug",
   },
-  {
-    selectedType: "A",
-    spoolNum: 4,
-    reason: "Contamination",
-    weight: 2493,
-    operator: "ug",
-  },
+  // {
+  //   selectedType: "A",
+  //   spoolNum: 4,
+  //   reason: "Contamination",
+  //   weight: 2493,
+  //   operator: "ug",
+  // },
 ];
