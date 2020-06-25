@@ -11,6 +11,10 @@ const GridContainer = styled.header`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 0.65fr;
   grid-row-gap: 30px;
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 0.65fr;
+  }
 `;
 const GridItem = styled.div`
   display: flex;
@@ -18,6 +22,9 @@ const GridItem = styled.div`
 `;
 const GridItemAlignRight = styled(GridItem)`
   align-items: flex-end;
+  @media (max-width: 520px) {
+    align-items: flex-start;
+  }
 `;
 const StyledP = styled.p`
   margin-bottom: 24px;

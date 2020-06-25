@@ -9,6 +9,9 @@ const FlexForm = styled.form`
   display: flex;
   margin-top: 16px;
   flex-wrap: wrap;
+  @media (max-width: 520px) {
+    display: initial;
+  }
 `;
 const FlexItem = styled.div`
   flex: 1 1 auto;
@@ -21,6 +24,12 @@ const FlexItem = styled.div`
     justify-content: flex-end;
     padding: 12px;
     flex-direction: row;
+  }
+  @media (max-width: 520px) {
+    margin-top: 12px;
+    :last-child {
+      justify-content: center;
+    }
   }
 `;
 const RadioContainer = styled.div`
