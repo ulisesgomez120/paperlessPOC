@@ -8,8 +8,8 @@ import Scrap from "./components/Scrap";
 function App() {
   return (
     <React.Fragment>
-      <Nav />
       <BrowserRouter>
+        <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/scrap/:slug" component={Scrap} />
