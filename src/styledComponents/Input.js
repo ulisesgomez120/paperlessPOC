@@ -4,6 +4,7 @@ import { type } from "os";
 export const BaseInput = styled.input`
   border: 1px solid #c4c4c4;
   height: 36px;
+  padding: 5px;
 `;
 export const FinishRunInput = styled(BaseInput)`
   width: 48px;

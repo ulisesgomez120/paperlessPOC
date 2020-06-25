@@ -1,7 +1,7 @@
 import React from "react";
 import Data from "../data";
 import Header from "../styledComponents/withProps/Header";
-import ScrapForm from "../styledComponents/ScrapForm";
+import ScrapForm from "../styledComponents/withState/ScrapForm";
 import ScrapTable from "../styledComponents/withState/ScrapTable";
 
 const Scrap = props => {

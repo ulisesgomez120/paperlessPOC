@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { BaseInput, ScrapSmallInput, Radio } from "../styledComponents/Input";
-import { PrimaryBtn } from "../styledComponents/Button";
+import { BaseInput, ScrapSmallInput, Radio } from "../Input";
+import { PrimaryBtn } from "../Button";
 const Container = styled.div`
   padding: 22px 30px;
 `;
@@ -33,19 +33,28 @@ const ScrapLable = styled.h3`
 `;
 class ScrapForm extends Component {
   state = {
-    selectedRadio: "A"
+    selectedRadio: "A",
+    spoolNum: 1,
+    reason: "",
+    weight: 0,
+    operator: ""
   };
 
-  handleRadioChange = event => {
+  handleInputChange = event => {
+    const target = event.target;
+    console.log(target.name);
+    const name = target.name === "type" ? "selectedRadio" : target.name;
+    const value = target.value;
+
     this.setState({
-      selectedRadio: event.target.value
+      [name]: value
     });
   };
 
-  formHandler(e) {
+  formHandler = e => {
     e.preventDefault();
-    console.log("e");
-  }
+    console.log(this.state);
+  };
   render() {
     return (
       <Container>
@@ -60,9 +69,9 @@ class ScrapForm extends Component {
                 name="type"
                 value="A"
                 checked={this.state.selectedRadio === "A"}
-                onChange={this.handleRadioChange}
+                onChange={this.handleInputChange}
               />
-              <label for="A">A - Cause Clear/Actionable</label>
+              <label htmlFor="A">A - Cause Clear/Actionable</label>
             </RadioContainer>
             <RadioContainer>
               <Radio
@@ -71,9 +80,9 @@ class ScrapForm extends Component {
                 name="type"
                 value="B"
                 checked={this.state.selectedRadio === "B"}
-                onChange={this.handleRadioChange}
+                onChange={this.handleInputChange}
               />
-              <label for="B">B - Cause Clear/Not Actionable</label>
+              <label htmlFor="B">B - Cause Clear/Not Actionable</label>
             </RadioContainer>
             <RadioContainer>
               <Radio
@@ -82,29 +91,47 @@ class ScrapForm extends Component {
                 name="type"
                 value="C"
                 checked={this.state.selectedRadio === "C"}
-                onChange={this.handleRadioChange}
+                onChange={this.handleInputChange}
               />
-              <label for="C">C - Cause Unclear</label>
+              <label htmlFor="C">C - Cause Unclear</label>
             </RadioContainer>
           </FlexItem>
           <FlexItem>
             <ScrapLable>Spool #</ScrapLable>
-            <ScrapSmallInput type="number" />
+            <ScrapSmallInput
+              type="number"
+              name="spoolNum"
+              onChange={this.handleInputChange}
+            />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Reason</ScrapLable>
-            <BaseInput type="text" />
+            <BaseInput
+              type="text"
+              name="reason"
+              onChange={this.handleInputChange}
+            />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Weight</ScrapLable>
-            <ScrapSmallInput type="number" />
+            <ScrapSmallInput
+              type="number"
+              name="weight"
+              onChange={this.handleInputChange}
+            />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Operator</ScrapLable>
-            <ScrapSmallInput type="text" />
+            <ScrapSmallInput
+              type="text"
+              name="operator"
+              onChange={this.handleInputChange}
+            />
           </FlexItem>
           <FlexItem>
-            <PrimaryBtn className="large">Scrap Spool</PrimaryBtn>
+            <PrimaryBtn className="large" type="submit">
+              Scrap Spool
+            </PrimaryBtn>
           </FlexItem>
         </FlexForm>
       </Container>
