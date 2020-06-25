@@ -32,34 +32,11 @@ const ScrapLable = styled.h3`
   color: #597a98;
 `;
 class ScrapForm extends Component {
-  state = {
-    selectedRadio: "A",
-    spoolNum: 1,
-    reason: "",
-    weight: 0,
-    operator: ""
-  };
-
-  handleInputChange = event => {
-    const target = event.target;
-    console.log(target.name);
-    const name = target.name === "type" ? "selectedRadio" : target.name;
-    const value = target.value;
-
-    this.setState({
-      [name]: value
-    });
-  };
-
-  formHandler = e => {
-    e.preventDefault();
-    console.log(this.state);
-  };
   render() {
     return (
       <Container>
         <h2>Scrap Log</h2>
-        <FlexForm onSubmit={this.formHandler}>
+        <FlexForm onSubmit={this.props.submit}>
           <FlexItem>
             <ScrapLable>Type</ScrapLable>
             <RadioContainer>
@@ -68,8 +45,8 @@ class ScrapForm extends Component {
                 id="A"
                 name="type"
                 value="A"
-                checked={this.state.selectedRadio === "A"}
-                onChange={this.handleInputChange}
+                checked={this.props.selectedType === "A"}
+                onChange={this.props.change}
               />
               <label htmlFor="A">A - Cause Clear/Actionable</label>
             </RadioContainer>
@@ -79,8 +56,8 @@ class ScrapForm extends Component {
                 id="B"
                 name="type"
                 value="B"
-                checked={this.state.selectedRadio === "B"}
-                onChange={this.handleInputChange}
+                checked={this.props.selectedType === "B"}
+                onChange={this.props.change}
               />
               <label htmlFor="B">B - Cause Clear/Not Actionable</label>
             </RadioContainer>
@@ -90,8 +67,8 @@ class ScrapForm extends Component {
                 id="C"
                 name="type"
                 value="C"
-                checked={this.state.selectedRadio === "C"}
-                onChange={this.handleInputChange}
+                checked={this.props.selectedType === "C"}
+                onChange={this.props.change}
               />
               <label htmlFor="C">C - Cause Unclear</label>
             </RadioContainer>
@@ -101,23 +78,19 @@ class ScrapForm extends Component {
             <ScrapSmallInput
               type="number"
               name="spoolNum"
-              onChange={this.handleInputChange}
+              onChange={this.props.change}
             />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Reason</ScrapLable>
-            <BaseInput
-              type="text"
-              name="reason"
-              onChange={this.handleInputChange}
-            />
+            <BaseInput type="text" name="reason" onChange={this.props.change} />
           </FlexItem>
           <FlexItem>
             <ScrapLable>Weight</ScrapLable>
             <ScrapSmallInput
               type="number"
               name="weight"
-              onChange={this.handleInputChange}
+              onChange={this.props.change}
             />
           </FlexItem>
           <FlexItem>
@@ -125,7 +98,7 @@ class ScrapForm extends Component {
             <ScrapSmallInput
               type="text"
               name="operator"
-              onChange={this.handleInputChange}
+              onChange={this.props.change}
             />
           </FlexItem>
           <FlexItem>

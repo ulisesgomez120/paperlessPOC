@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { RunBtn } from "../styledComponents/Button";
 import { Link } from "react-router-dom";
-import data from "../data";
+import { workOrders } from "../data";
 
 const Container = styled.div`
   width: 80%;
@@ -16,10 +16,10 @@ const Title = styled.h1`
   margin-bottom: 24px;
 `;
 
-export default class Home extends Component {
-  workOrdersData = data;
+const Home = () => {
+  const workOrdersData = workOrders;
 
-  workOrdersJsx = this.workOrdersData.map(
+  const workOrdersJsx = workOrdersData.map(
     ({ work_order_id, line, material }) => {
       let urlSlug = `/scrap/${work_order_id}`;
       return (
@@ -33,14 +33,12 @@ export default class Home extends Component {
     }
   );
 
-  render() {
-    return (
-      <React.Fragment>
-        <Container>
-          <Title>Choose Run:</Title>
-          {this.workOrdersJsx}
-        </Container>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <Container>
+      <Title>Choose Run:</Title>
+      {workOrdersJsx}
+    </Container>
+  );
+};
+
+export default Home;

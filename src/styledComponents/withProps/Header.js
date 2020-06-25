@@ -27,8 +27,8 @@ const Secondary = styled.span`
   color: #597a98;
 `;
 
-const Header = props => {
-  const wo = props.data;
+const Header = (props) => {
+  const wo = props.runData;
   return (
     <GridContainer>
       <GridItem>
@@ -54,7 +54,7 @@ const Header = props => {
         </StyledP>
       </GridItemAlignRight>
       <GridItem>
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <label>
             <Secondary>Qty Actual:</Secondary>
           </label>
