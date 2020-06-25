@@ -15,7 +15,11 @@ const Title = styled.h1`
   font-weight: normal;
   margin-bottom: 24px;
 `;
-
+const InBtnSpan = styled.span`
+  @media (max-width: 520px) {
+    margin-bottom: 12px;
+  }
+`;
 const Home = () => {
   const workOrdersData = workOrders;
 
@@ -25,7 +29,7 @@ const Home = () => {
       return (
         <Link key={work_order_id} to={urlSlug}>
           <RunBtn>
-            <span>Line: {line}</span>
+            <InBtnSpan>Line: {line}</InBtnSpan>
             <span>Material: {material}</span>
           </RunBtn>
         </Link>

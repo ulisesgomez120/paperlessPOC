@@ -23,6 +23,10 @@ export const RunBtn = styled(PrimaryBtn)`
   font-size: 19px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const PrimaryBtnBlock = styled(PrimaryBtn)`
   display: block;
