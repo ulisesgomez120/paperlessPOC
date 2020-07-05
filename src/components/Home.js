@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RunBtn } from "../styledComponents/Button";
 import { Link } from "react-router-dom";
 import { workOrders } from "../data";
+import Nav from "../styledComponents/Nav";
 
 const Container = styled.div`
   width: 80%;
@@ -38,10 +39,13 @@ const Home = () => {
   );
 
   return (
-    <Container>
-      <Title>Choose Run:</Title>
-      {workOrdersJsx}
-    </Container>
+    <React.Fragment>
+      <Nav />
+      <Container>
+        <Title>Choose Run:</Title>
+        {workOrdersJsx}
+      </Container>
+    </React.Fragment>
   );
 };
 

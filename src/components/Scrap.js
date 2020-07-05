@@ -3,6 +3,7 @@ import { workOrders, scrapTable } from "../data";
 import Header from "../styledComponents/withProps/Header";
 import ScrapForm from "../styledComponents/withProps/ScrapForm";
 import ScrapTable from "../styledComponents/withProps/ScrapTable";
+import Nav from "../styledComponents/Nav";
 
 class Scrap extends Component {
   state = {
@@ -48,6 +49,15 @@ class Scrap extends Component {
   render() {
     return (
       <React.Fragment>
+        <Nav
+          url={{
+            pathname: `/quality-check/${this.runData.work_order_id}`,
+            state: {
+              runData: this.runData,
+            },
+          }}
+          title="Quality Check"
+        />
         <Header runData={this.runData} />
         <ScrapForm
           change={this.handleInputChange}

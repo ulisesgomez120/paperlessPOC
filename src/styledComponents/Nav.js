@@ -7,18 +7,40 @@ const StyledNav = styled.nav`
   height: 60px;
   background-color: #000000;
   padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
 `;
 const Logo = styled.img`
   width: 115px;
 `;
+const CenterNavContainer = styled.div`
+  a {
+    color: rgb(219, 219, 219);
+    letter-spacing: 1px;
+    font-size: 17px;
+    :hover {
+      color: white;
+    }
+  }
+`;
 
-const Nav = () => {
+const Nav = (props) => {
+  let LinksRjx;
+  if (props.url) {
+    LinksRjx = (
+      <CenterNavContainer>
+        <Link to={props.url}>{props.title}</Link>
+      </CenterNavContainer>
+    );
+  }
   return (
     <StyledNav>
-      {/* anchor tag for navigation to home page */}
-      <Link to="/">
-        <Logo src={logo} />
-      </Link>
+      <div>
+        <Link to="/">
+          <Logo src={logo} />
+        </Link>
+      </div>
+      {LinksRjx ? LinksRjx : null}
     </StyledNav>
   );
 };
