@@ -4,7 +4,8 @@
 //currentCheckOf9
 //link to here
 import React, { Component } from "react";
-import Nav from "../styledComponents/Nav";
+import Nav from "../styledComponents/withProps/Nav";
+import { Container } from "../styledComponents/Container";
 
 export class QualityCheck extends Component {
   state = {
@@ -15,20 +16,21 @@ export class QualityCheck extends Component {
       check1: {},
     },
   };
+  runData = this.props.location.state.runData;
+  slug = this.runData.work_order_id;
+  diameterWholeNum = this.runData.material.split(" ")[2].slice(0, 2);
 
   render() {
-    const slug = this.props.location.state.runData.work_order_id;
     return (
       <React.Fragment>
-        <Nav
-          url={{
-            pathname: `/scrap/${slug}`,
-            state: {
-              runData: this.runData,
-            },
-          }}
-          title="Scrap"
-        />
+        <Nav url={`/scrap/${this.slug}`} title="Scrap" />
+        <Container>
+          <h1>Quality Check {this.runData.material}</h1>
+          <form>
+            <label>Diameter: {this.diameterWholeNum}</label>
+            <input type="number" />
+          </form>
+        </Container>
       </React.Fragment>
     );
   }

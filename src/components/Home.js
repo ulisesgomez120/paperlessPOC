@@ -3,14 +3,9 @@ import styled from "styled-components";
 import { RunBtn } from "../styledComponents/Button";
 import { Link } from "react-router-dom";
 import { workOrders } from "../data";
-import Nav from "../styledComponents/Nav";
+import Nav from "../styledComponents/withProps/Nav";
+import { Container } from "../styledComponents/Container";
 
-const Container = styled.div`
-  width: 80%;
-  margin: 20px auto;
-  text-align: center;
-  padding: 22px 16px;
-`;
 const Title = styled.h1`
   font-size: 40px;
   font-weight: normal;
