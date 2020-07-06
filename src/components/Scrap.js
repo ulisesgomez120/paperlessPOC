@@ -9,9 +9,9 @@ class Scrap extends Component {
   state = {
     formData: {
       selectedType: "A",
-      spoolNum: 0,
+      spoolNum: "",
       reason: "",
-      weight: 0,
+      weight: "",
       operator: "",
     },
     scrapTableData: scrapTable,
@@ -34,9 +34,9 @@ class Scrap extends Component {
     this.setState({
       formData: {
         selectedType: "A",
-        spoolNum: 0,
+        spoolNum: "",
         reason: "",
-        weight: 0,
+        weight: "",
         operator: "",
       },
       scrapTableData: scrapTableCopy,
