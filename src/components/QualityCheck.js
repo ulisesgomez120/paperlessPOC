@@ -1,19 +1,12 @@
-//stateful
-//form
-//currentCheck
-//currentCheckOf9
-//link to here
 import React, { Component } from "react";
 import Nav from "../styledComponents/withProps/Nav";
 import { Container } from "../styledComponents/Container";
 
 export class QualityCheck extends Component {
   state = {
-    diameterCheckInput: 0,
     currentCheck: 1,
     currentStep: 1,
     inputValue: "",
-    currentValues: [],
     diameterChecks: [
       { checkNum: 1, values: [], average: 0 },
       { checkNum: 2, values: [], average: 0 },
@@ -33,13 +26,31 @@ export class QualityCheck extends Component {
 
   formHandler = (e) => {
     e.preventDefault();
+    const checksArrayCopy = [...this.state.diameterChecks];
     const currCheckIndex = this.state.currentCheck - 1;
-    const checkCopy = { ...this.state.diameterChecks[currCheckIndex] };
-    checkCopy.values.push(9);
-    console.log(checkCopy);
+    checksArrayCopy[currCheckIndex].values.push(this.state.inputValue);
+    if (this.state.currentStep === 9) {
+      const resetStep = 1;
+      const nextCheck = this.state.currentCheck + 1;
+      this.setState({
+        diameterChecks: [...checksArrayCopy],
+        currentStep: resetStep,
+        currentCheck: nextCheck,
+        inputValue: "",
+      });
+    } else {
+      const nextStep = this.state.currentStep + 1;
+      this.setState({
+        diameterChecks: [...checksArrayCopy],
+        currentStep: nextStep,
+        inputValue: "",
+      });
+    }
   };
   inputHandler = (e) => {
-    console.log(e.target.value);
+    this.setState({
+      inputValue: e.target.value,
+    });
   };
   render() {
     return (
