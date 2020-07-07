@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { workOrders, scrapTable } from "../data";
 import Header from "../styledComponents/withProps/Header";
 import ScrapForm from "../styledComponents/withProps/ScrapForm";
-import ScrapTable from "../styledComponents/withProps/ScrapTable";
+import { ScrapTable } from "../styledComponents/withProps/Table";
 import Nav from "../styledComponents/withProps/Nav";
 
 class Scrap extends Component {

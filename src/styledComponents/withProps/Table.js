@@ -20,7 +20,7 @@ const TdReason = styled(Td)`
   flex-basis: 35%;
 `;
 
-const ScrapTable = (props) => {
+export const ScrapTable = (props) => {
   const tableJsx = props.tableData.map((obj) => {
     return (
       <Tr>
@@ -35,5 +35,3 @@ const ScrapTable = (props) => {
 
   return <Table>{tableJsx}</Table>;
 };
-
-export default ScrapTable;
