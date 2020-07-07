@@ -34,7 +34,7 @@ export class QualityCheck extends Component {
   formHandler = (e) => {
     e.preventDefault();
     const currCheckIndex = this.state.currentCheck - 1;
-    const checkCopy = { ...this.state.diameterChecks[0] };
+    const checkCopy = { ...this.state.diameterChecks[currCheckIndex] };
     checkCopy.values.push(9);
     console.log(checkCopy);
   };
