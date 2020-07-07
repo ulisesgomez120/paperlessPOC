@@ -64,7 +64,7 @@ class Scrap extends Component {
           formData={this.state.formData}
           submit={this.formHandler}
         />
-        <ScrapTable tableData={this.state.scrapTableData} />
+        <ScrapTable data={this.state.scrapTableData} />
       </React.Fragment>
     );
   }

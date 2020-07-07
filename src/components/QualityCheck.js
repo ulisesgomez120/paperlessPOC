@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../styledComponents/withProps/Nav";
 import { Container } from "../styledComponents/Container";
-
+import { QualityTable } from "../styledComponents/withProps/Table";
 export class QualityCheck extends Component {
   state = {
     currentCheck: 1,
@@ -70,6 +70,7 @@ export class QualityCheck extends Component {
             />
             <button type="submit">submit</button>
           </form>
+          <QualityTable data={this.state.diameterChecks} />
         </Container>
       </React.Fragment>
     );
