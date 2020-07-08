@@ -65,6 +65,7 @@ export class QualityCheck extends Component {
             <label>{this.diameterWholeNum}</label>
             <input
               type="number"
+              autoFocus
               onChange={this.inputHandler}
               value={this.state.inputValue}
             />
