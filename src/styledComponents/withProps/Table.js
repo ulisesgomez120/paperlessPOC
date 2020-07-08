@@ -50,6 +50,8 @@ export const QualityTable = (props) => {
     if (obj.values.length > 0) {
       const tdJsx = obj.values.map((val) => <TdQuality>{val}</TdQuality>);
       return <TrQuality>{tdJsx}</TrQuality>;
+    } else {
+      return;
     }
   });
   return <Table>{tableJsx}</Table>;
