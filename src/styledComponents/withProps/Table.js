@@ -47,12 +47,11 @@ export const ScrapTable = (props) => {
 };
 export const QualityTable = (props) => {
   const tableJsx = props.data.map((obj) => {
+    let tdJsx;
     if (obj.values.length > 0) {
-      const tdJsx = obj.values.map((val) => <TdQuality>{val}</TdQuality>);
-      return <TrQuality>{tdJsx}</TrQuality>;
-    } else {
-      return;
+      tdJsx = obj.values.map((val) => <TdQuality>{val}</TdQuality>);
     }
+    return <TrQuality>{tdJsx}</TrQuality>;
   });
   return <Table>{tableJsx}</Table>;
 };
